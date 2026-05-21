@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Ricardo Sales Advogado | IA Jurídica & Atendimento</title>
+  <!-- Redirecionamento condicional: NÃO haverá refresh automático, pois a IA vai filtrar -->
+  <!-- Google Fonts e Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F9F6EF;
+      color: #1E2A2F;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    .top-bar {
+      background-color: #2C3E2B;
+      color: #FDF7E6;
+      padding: 8px 0;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .top-bar i {
+      margin-right: 6px;
+      color: #D9B48B;
+    }
+
+    .main-header {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(2px);
+      background: rgba(255,255,245,0.96);
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #2C3E2B;
+    }
+
+    .logo p {
+      font-size: 0.8rem;
+      color: #9B7B4C;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #2C3E2B;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #B68B40;
+    }
+
+    .btn-contato {
+      background: #B68B40;
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 40px;
+      transition: 0.2s;
+    }
+
+    .btn-contato:hover {
+      background: #9C6E34;
+      transform: translateY(-2px);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(95deg, #F2E6D8 0%, #FFF7EF 100%);
+      border-bottom: 1px solid #EADBCB;
+      padding: 60px 0 64px;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #2C3E2B20;
+      backdrop-filter: blur(4px);
+      padding: 6px 18px;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #5F4C2B;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #2C3E2B;
+      margin-bottom: 16px;
+    }
+
+    .hero-content .highlight {
+      color: #B68B40;
+      border-bottom: 3px solid #D9B48B;
+      display: inline-block;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin: 20px 0 28px;
+      color: #2C3E2BCC;
+      max-width: 540px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .stat-item i {
+      font-size: 1.8rem;
+      color: #B68B40;
+    }
+
+    .hero-img {
+      flex: 0.9;
+      text-align: center;
+      background: #EADBCB;
+      border-radius: 32px;
+      padding: 20px;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+
+    .hero-img i {
+      font-size: 6rem;
+      color: #2C3E2B;
+      opacity: 0.9;
+    }
+
+    /* Temas */
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #2C3E2B;
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 48px;
+      color: #5A5A4E;
+      font-size: 1.05rem;
+    }
+
+    .temas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 32px;
+      margin: 40px 0 60px;
+    }
+
+    .tema-card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s ease;
+      border: 1px solid #f0e2d4;
+    }
+
+    .tema-card:hover {
+      transform: translateY(-8px);
+      border-color: #D9B48B;
+      box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-icon {
+      background: #F2E6D8;
+      width: 60px;
+      height: 60px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .card-icon i {
+      font-size: 28px;
+      color: #B68B40;
+    }
+
+    .tema-card h3 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #2C3E2B;
+    }
+
+    .tema-card p {
+      color: #3E4A4A;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .card-link {
+      font-weight: 600;
+      color: #B68B40;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    /* SOBRE */
+    .sobre {
+      background: #FEFAF5;
+      border-radius: 48px;
+      margin: 40px 0 60px;
+      padding: 48px 40px;
+      box-shadow: inset 0 0 0 1px #FFF3E8, 0 12px 20px -16px rgba(0,0,0,0.05);
+    }
+
+    .sobre-flex {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .sobre-texto {
+      flex: 1.5;
+    }
+
+    .sobre-texto h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .selo-tradicao {
+      background: #EADBCB;
+      padding: 20px 24px;
+      border-radius: 28px;
+      flex: 0.8;
+      text-align: center;
+    }
+
+    .diferenciais {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 30px 0 60px;
+    }
+
+    .dif-item {
+      flex: 1;
+      background: white;
+      border-radius: 24px;
+      padding: 28px 16px;
+      text-align: center;
+      border: 1px solid #EDE3D8;
+    }
+
+    .dif-item i {
+      font-size: 2rem;
+      color: #B68B40;
+      margin-bottom: 16px;
+    }
+
+    /* CHATBOT IA FLOAT */
+    .chat-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 1000;
+    }
+
+    .chat-toggle {
+      background: #2C3E2B;
+      width: 64px;
+      height: 64px;
+      border-radius: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: 0.2s;
+      color: white;
+      font-size: 28px;
+      border: none;
+    }
+
+    .chat-toggle:hover {
+      background: #B68B40;
+      transform: scale(1.03);
+    }
+
+    .chat-window {
+      position: fixed;
+      bottom: 100px;
+      right: 28px;
+      width: 360px;
+      max-width: calc(100vw - 40px);
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid #EADBCB;
+      z-index: 1001;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .chat-header {
+      background: #2C3E2B;
+      color: white;
+      padding: 16px 20px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header i {
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      height: 320px;
+      overflow-y: auto;
+      padding: 16px;
+      background: #FEFAF5;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .bot-msg {
+      background: #EADBCB;
+      color: #2C3E2B;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .user-msg {
+      background: #B68B40;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-input-area {
+      display: flex;
+      border-top: 1px solid #EDE3D8;
+      padding: 12px;
+      background: white;
+    }
+
+    .chat-input-area input {
+      flex: 1;
+      border: 1px solid #EADBCB;
+      padding: 10px 12px;
+      border-radius: 40px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .chat-input-area button {
+      background: #B68B40;
+      border: none;
+      margin-left: 8px;
+      border-radius: 40px;
+      width: 44px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .chat-input-area button:hover {
+      background: #9C6E34;
+    }
+
+    .contato-area {
+      background: #2C3E2B;
+      color: white;
+      border-radius: 48px;
+      padding: 56px 40px;
+      margin: 40px 0 60px;
+    }
+
+    .contato-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-grande {
+      background: #B68B40;
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 60px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #1F2A1E;
+      color: #D4C9B6;
+      padding: 32px 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 700px) {
+      .hero-content h2 { font-size: 2rem; }
+      .header-flex { flex-direction: column; }
+      .chat-window { width: 300px; right: 12px; bottom: 85px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container">
+    <i class="fas fa-map-marker-alt"></i> Mesejana - Fortaleza • Ceará • Atuação em todo Brasil
+    <span style="margin-left: 20px;"><i class="fas fa-phone-alt"></i> (85) 98957-9947</span>
+  </div>
+</div>
+
+<header class="main-header">
+  <div class="container header-flex">
+    <div class="logo">
+      <h1>Ricardo Sales</h1>
+      <p>ADVOGADO | OAB/CE 34017</p>
+    </div>
+    <div class="nav-links">
+      <a href="#temas">Especialidades</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fas fa-gavel"></i> Advocacia com ética + IA de suporte</span>
+      <h2>Justiça que <span class="highlight">acolhe</span> e <span class="highlight">defende</span><br>seus direitos</h2>
+      <p>Dr. Ricardo Sales – OAB/CE 34017. Mais de 12 anos de experiência. Converse com nossa assistente virtual para dúvidas iniciais, e se precisar, será transferido diretamente para o WhatsApp.</p>
+      <div class="hero-stats">
+        <div class="stat-item"><i class="fas fa-check-circle"></i> <strong>+500</strong> <span>casos</span></div>
+        <div class="stat-item"><i class="fas fa-robot"></i> <strong>IA 24h</strong> <span>dúvidas rápidas</span></div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <i class="fas fa-balance-scale"></i>
+      <p style="margin-top: 12px;">Mesejana • Fortaleza<br>Compromisso com a justiça</p>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div id="temas">
+    <div class="section-title">Atuação estratégica por tema</div>
+    <div class="section-sub">Clique em qualquer área e tire dúvidas com nossa IA antes de falar com o advogado.</div>
+  </div>
+  <div class="temas-grid">
+    <div class="tema-card"><div class="card-icon"><i class="fas fa-handshake"></i></div><h3>Direito Civil</h3><p>Contratos, indenizações, família e muito mais.</p><div class="card-link" data-tema="Direito Civil">Saiba mais <i class="fas fa-arrow-right"></i></div></div>
+    <div class="tema-card"><div class="card-icon"><i class="fas fa-shopping-cart"></i></div><h3>Direito do Consumidor</h3><p>Cobranças abusivas, negativação, planos de saúde.</p><div class="card-link" data-tema="Direito do Consumidor">Saiba mais <i class="fas fa-arrow-right"></i></div></div>
+    <div class="tema-card"><div class="card-icon"><i class="fas fa-briefcase"></i></div><h3>Direito Trabalhista</h3><p>Horas extras, rescisões, assédio moral.</p><div class="card-link" data-tema="Direito Trabalhista">Saiba mais <i class="fas fa-arrow-right"></i></div></div>
+    <div class="tema-card"><div class="card-icon"><i class="fas fa-calendar-alt"></i></div><h3>Direito Previdenciário</h3><p>Aposentadorias, BPC, revisões.</p><div class="card-link" data-tema="Direito Previdenciário">Saiba mais <i class="fas fa-arrow-right"></i></div></div>
+    <div class="tema-card"><div class="card-icon"><i class="fas fa-university"></i></div><h3>Direito Bancário</h3><p>Revisão de contratos, superendividamento.</p><div class="card-link" data-tema="Direito Bancário">Saiba mais <i class="fas fa-arrow-right"></i></div></div>
+    <div class="tema-card"><div class="card-icon"><i class="fas fa-heart"></i></div><h3>Direito de Família</h3><p>Divórcio, guarda, alimentos.</p><div class="card-link" data-tema="Direito de Família">Saiba mais <i class="fas fa-arrow-right"></i></div></div>
+    <div class="tema-card"><div class="card-icon"><i class="fas fa-home"></i></div><h3>Direito Imobiliário</h3><p>Usucapião, contratos, locação.</p><div class="card-link" data-tema="Direito Imobiliário">Saiba mais <i class="fas fa-arrow-right"></i></div></div>
+    <div class="tema-card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Direito Empresarial</h3><p>Contratos comerciais, recuperação.</p><div class="card-link" data-tema="Direito Empresarial">Saiba mais <i class="fas fa-arrow-right"></i></div></div>
+    <div class="tema-card"><div class="card-icon"><i class="fas fa-shield-alt"></i></div><h3>Direito Penal</h3><p>Defesa criminal, habeas corpus.</p><div class="card-link" data-tema="Direito Penal">Saiba mais <i class="fas fa-arrow-right"></i></div></div>
+  </div>
+
+  <div id="sobre" class="sobre">
+    <div class="sobre-flex">
+      <div class="sobre-texto"><h3><i class="fas fa-sun"></i> Raízes cearenses: tradição e tecnologia</h3><p>Dr. Ricardo Sales, OAB/CE 34017, une a experiência jurídica tradicional a um atendimento inovador com IA. Localizado na Rua Aveledo, 396 - Mesejana, Fortaleza/CE, atende todo Brasil com ética e eficiência.</p><div><i class="fas fa-certificate"></i> Comissão de Direito Civil – OAB/CE</div></div>
+      <div class="selo-tradicao"><i class="fas fa-tree"></i><p>"Defender direitos com excelência, agora com suporte virtual inteligente."</p></div>
+    </div>
+  </div>
+
+  <div class="diferenciais">
+    <div class="dif-item"><i class="fas fa-robot"></i><h4>IA 24 horas</h4><p>Tire dúvidas iniciais a qualquer momento.</p></div>
+    <div class="dif-item"><i class="fas fa-chart-simple"></i><h4>Estratégia Personalizada</h4><p>Cada caso é único, análise aprofundada.</p></div>
+    <div class="dif-item"><i class="fas fa-scale-balanced"></i><h4>Mediação e Conciliação</h4><p>Redução de litígios.</p></div>
+    <div class="dif-item"><i class="fas fa-file-signature"></i><h4>Honorários Transparentes</h4><p>Contrato claro.</p></div>
+  </div>
+</div>
+
+<section id="contato">
+  <div class="container contato-area">
+    <div class="contato-flex">
+      <div class="contato-info"><h3>Atendimento humanizado</h3><p>Fale com nossa assistente virtual para dúvidas rápidas ou solicite contato direto.</p><div><i class="fab fa-whatsapp"></i> (85) 98957-9947</div><div><i class="far fa-envelope"></i> ricardosalesadvogado@hotmail.com</div><div><i class="fas fa-map-pin"></i> Rua Aveledo, 396 - Mesejana, Fortaleza - CE | CEP: 60871-210</div></div>
+      <div><button class="btn-grande" id="abrirChatBotBtn"><i class="fas fa-comment-dots"></i> Tirar dúvida com IA</button><p style="margin-top:12px;">*Atendimento inicial por inteligência artificial. Se necessário, você será transferido diretamente para o Dr. Ricardo.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Dr. Ricardo Sales Advogado – OAB/CE 34017 | Rua Aveledo, 396 - Mesejana, Fortaleza-CE</p>
+    <p>IA especialista em Direito | Transferência apenas para interessados.</p>
+  </div>
+</footer>
+
+<!-- CHATBOT IA (simulação com respostas automáticas inteligentes) -->
+<div class="chat-float">
+  <div class="chat-toggle" id="chatToggleFloat">
+    <i class="fas fa-comment-dots"></i>
+  </div>
+</div>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <span><i class="fas fa-robot"></i> Dra. IA - Jurídico</span>
+    <i class="fas fa-times" id="closeChat"></i>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="message bot-msg">Olá! Sou assistente virtual do Dr. Ricardo Sales. Posso esclarecer dúvidas iniciais sobre prazos, áreas do direito e serviços. Caso queira falar diretamente com o advogado, é só pedir. Como posso ajudar?</div>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" id="chatInput" placeholder="Digite sua dúvida...">
+    <button id="sendMsgBtn"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<script>
+  // ======================= IA JURÍDICA (LÓGICA DE RESPOSTAS + TRANSFERÊNCIA) =======================
+  const numeroWhats = "5585989579947";
+  const chatMessagesDiv = document.getElementById('chatMessages');
+  const chatInput = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendMsgBtn');
+  const chatWindow = document.getElementById('chatWindow');
+  const chatToggleFloat = document.getElementById('chatToggleFloat');
+  const closeChat = document.getElementById('closeChat');
+  const abrirChatBotBtn = document.getElementById('abrirChatBotBtn');
+  
+  // Abrir/fechar chat
+  function openChat() { chatWindow.style.display = 'flex'; }
+  function closeChatWindow() { chatWindow.style.display = 'none'; }
+  chatToggleFloat.addEventListener('click', openChat);
+  closeChat.addEventListener('click', closeChatWindow);
+  if(abrirChatBotBtn) abrirChatBotBtn.addEventListener('click', openChat);
+  
+  // Adicionar mensagem na tela
+  function addMessage(text, isUser) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('message', isUser ? 'user-msg' : 'bot-msg');
+    msgDiv.innerText = text;
+    chatMessagesDiv.appendChild(msgDiv);
+    chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+  }
+  
+  // Função principal da IA (respostas baseadas em palavras-chave, simulando conhecimento jurídico)
+  function iaResponder(pergunta) {
+    const lower = pergunta.toLowerCase();
+    // Se o usuário demonstrar interesse real em falar com advogado
+    if(lower.includes('falar com advogado') || lower.includes('quero falar com dr') || lower.includes('transferir') || lower.includes('atendimento humano') || lower.includes('falar direto') || lower.includes('quero contratar') || lower.includes('quero consulta')) {
+      return "TRANSFERIR";
+    }
+    // Dúvidas sobre honorários
+    if(lower.includes('honorário') || lower.includes('valor') || lower.includes('quanto custa') || lower.includes('preço')) {
+      return "Os honorários variam conforme a complexidade do caso. Para uma análise personalizada, poderei transferir você para o Dr. Ricardo Sales. Gostaria de falar diretamente com ele? (responda 'sim' para transferência)";
+    }
+    // Direito do consumidor
+    if(lower.includes('consumidor') || lower.includes('negativação') || lower.includes('banco') || lower.includes('cartão')) {
+      return "Em matéria de Direito do Consumidor, o CDC protege contra cobranças indevidas. O Dr. Ricardo possui grande expertise em ações revisionais. Deseja saber mais sobre prazos? Se preferir, posso te encaminhar ao contato direto.";
+    }
+    if(lower.includes('trabalhista') || lower.includes('hora extra') || lower.includes('rescisão')) {
+      return "No Direito Trabalhista, prazos prescricionais são de 2 anos para ajuizar ação (5 anos de direitos). Cada caso é único. Quer que eu transfira para o Dr. Ricardo para uma avaliação detalhada?";
+    }
+    if(lower.includes('familia') || lower.includes('divórcio') || lower.includes('guarda') || lower.includes('pensão')) {
+      return "Direito de Família envolve aspectos sensíveis. O Dr. Ricardo oferece mediação sempre que possível. Gostaria de solicitar uma conversa inicial (sem custo de diagnóstico)? Diga 'sim' que encaminho ao WhatsApp.";
+    }
+    if(lower.includes('previdenciário') || lower.includes('aposentadoria') || lower.includes('inss')) {
+      return "No Direito Previdenciário, é possível revisar benefícios e planejar aposentadoria. Que tipo de dúvida você tem? Caso queira um parecer, posso te transferir para o advogado.";
+    }
+    if(lower.includes('civil') || lower.includes('indenização') || lower.includes('contrato')) {
+      return "Direito Civil abrange indenizações, contratos e responsabilidade. O Dr. Ricardo atua com estratégia focada no melhor acordo para o cliente. Deseja entrar em contato agora?";
+    }
+    if(lower.includes('penal') || lower.includes('crime') || lower.includes('habeas')) {
+      return "Defesa criminal exige atuação imediata. Recomendo falar diretamente com o Dr. Ricardo. Posso transferir você via WhatsApp?";
+    }
+    if(lower.includes('imobiliário') || lower.includes('compra') || lower.includes('usucapião')) {
+      return "Direito Imobiliário: usucapião, contratos e regularizações. Podemos te ajudar. Vamos conversar com o advogado? Diga 'sim' para transferência.";
+    }
+    if(lower.includes('oi') || lower.includes('olá') || lower.includes('bom dia') || lower.includes('boa tarde')) {
+      return "Olá! Estou aqui para orientar sobre os serviços do Dr. Ricardo Sales, especialista em várias áreas do Direito. Em que posso ajudar?";
+    }
+    // Resposta padrão com oferta de transferência
+    return "Entendo sua dúvida. Para uma orientação mais precisa e personalizada, o ideal é falar diretamente com o Dr. Ricardo Sales. Posso transferir você para o WhatsApp dele agora mesmo? (responda 'sim' ou 'quero falar com advogado')";
+  }
+  
+  // Função para transferir para WhatsApp
+  function transferirWhatsApp(mensagemContexto = null) {
+    let texto = "Olá Dr. Ricardo, fui direcionado pela IA do seu site e gostaria de atendimento jurídico personalizado.";
+    if(mensagemContexto) texto = mensagemContexto;
+    const url = `https://wa.me/${numeroWhats}?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+    addMessage("🔁 Transferindo você para o WhatsApp do Dr. Ricardo Sales. Aguarde um momento...", false);
+    setTimeout(() => { 
+      // já abrimos a janela, apenas feedback
+      if(confirm("Abrimos o WhatsApp? Caso não tenha aberto, clique em 'Falar agora' na página.")){}
+    }, 500);
+  }
+  
+  // Processar mensagem do usuário
+  async function processUserMessage(userText) {
+    addMessage(userText, true);
+    const resposta = iaResponder(userText);
+    if(resposta === "TRANSFERIR") {
+      addMessage("Perfeito! Vou te encaminhar para o Dr. Ricardo Sales agora mesmo. Por favor, aguarde a abertura do WhatsApp. 👨‍⚖️", false);
+      setTimeout(() => {
+        transferirWhatsApp("Olá Dr. Ricardo! Solicitei atendimento via assistente virtual do site. Podemos conversar sobre meu caso?");
+      }, 1200);
+    } else {
+      addMessage(resposta, false);
+      // Se resposta sugerir transferência, mas não for explícito, podemos perguntar após 1s? Para melhor UX: detectar se ele respondeu 'sim' ou algo.
+      const lowerSim = userText.toLowerCase();
+      if(lowerSim === 'sim' || lowerSim === 'quero' || lowerSim === 'sim quero falar' || lowerSim.includes('quero sim')) {
+        addMessage("Ótimo! Redirecionando você para o contato direto do Dr. Ricardo. Um momento.", false);
+        setTimeout(() => {
+          transferirWhatsApp("Olá! Pela IA do site, manifestei interesse em atendimento jurídico. Podemos falar?");
+        }, 1000);
+      } else if (resposta.includes("transferir você") && (lowerSim.includes('sim') || lowerSim.includes('encaminhar'))) {
+        // já tratado
+      }
+    }
+  }
+  
+  sendBtn.addEventListener('click', () => {
+    const msg = chatInput.value.trim();
+    if(msg === "") return;
+    chatInput.value = "";
+    processUserMessage(msg);
+  });
+  chatInput.addEventListener('keypress', (e) => {
+    if(e.key === 'Enter') {
+      e.preventDefault();
+      sendBtn.click();
+    }
+  });
+  
+  // Para links "Saiba mais" dos cards: faz a IA abrir automaticamente e perguntar sobre o tema
+  const cardsLinks = document.querySelectorAll('.card-link');
+  cardsLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tema = link.getAttribute('data-tema') || "direito";
+      openChat();
+      setTimeout(() => {
+        const mensagemSimulada = `Gostaria de saber mais sobre ${tema}. Pode me ajudar?`;
+        processUserMessage(mensagemSimulada);
+      }, 300);
+    });
+  });
+  
+  // Botão flutuante já abre
+  console.log("IA Jurídica ativa - Transferência somente para interessados.");
+</script>
+</body>
+</html>
